@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approver Portal - SecurePass Gate Management</title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="landing-container approver-portal">
+        <!-- Navigation Header -->
+        <nav class="landing-nav">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecurePass</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#help" class="nav-link">
+                    <i class="fas fa-question-circle"></i> Help
+                </a>
+                <a href="#contact" class="nav-link">
+                    <i class="fas fa-phone"></i> Contact
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-icon approver">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h1>Approver Portal</h1>
+                <p class="hero-subtitle">Review, approve, and manage gate pass requests efficiently</p>
+                
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="stat-item urgent">
+                        <div class="stat-number" id="urgentRequests">5</div>
+                        <div class="stat-label">Urgent Requests</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="pendingApprovals">12</div>
+                        <div class="stat-label">Pending Approvals</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="approvedToday">28</div>
+                        <div class="stat-label">Approved Today</div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-large" onclick="navigateTo('pending-approvals')">
+                        <i class="fas fa-clock"></i>
+                        Pending Approvals
+                    </button>
+                    <button class="btn btn-secondary btn-large" onclick="navigateTo('dashboard')">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-card priority-high" onclick="navigateTo('pending-approvals')">
+                    <div class="feature-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Urgent Approvals</h3>
+                    <p>Review and process high-priority gate pass requests</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Priority sorting</li>
+                        <li><i class="fas fa-check"></i> Quick approval</li>
+                        <li><i class="fas fa-check"></i> Bulk actions</li>
+                    </ul>
+                    <div class="feature-badge">5 Urgent</div>
+                </div>
+
+                <div class="feature-card" onclick="navigateTo('approval-queue')">
+                    <div class="feature-icon">
+                        <i class="fas fa-list-ul"></i>
+                    </div>
+                    <h3>Approval Queue</h3>
+                    <p>Manage all pending requests with advanced filtering options</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Smart filtering</li>
+                        <li><i class="fas fa-check"></i> Batch processing</li>
+                        <li><i class="fas fa-check"></i> Custom workflows</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" onclick="navigateTo('analytics')">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics & Reports</h3>
+                    <p>Track approval metrics and generate comprehensive reports</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Performance metrics</li>
+                        <li><i class="fas fa-check"></i> Trend analysis</li>
+                        <li><i class="fas fa-check"></i> Export reports</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" onclick="navigateTo('team-management')">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Team Management</h3>
+                    <p>Oversee team requests and delegate approval responsibilities</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Team overview</li>
+                        <li><i class="fas fa-check"></i> Delegation tools</li>
+                        <li><i class="fas fa-check"></i> Performance tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approval Metrics -->
+        <section class="metrics-section">
+            <h2>Approval Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <h3>Response Time</h3>
+                        <i class="fas fa-stopwatch"></i>
+                    </div>
+                    <div class="metric-value">2.3 hrs</div>
+                    <div class="metric-change positive">
+                        <i class="fas fa-arrow-down"></i> 15% faster
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <h3>Approval Rate</h3>
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="metric-value">94%</div>
+                    <div class="metric-change positive">
+                        <i class="fas fa-arrow-up"></i> 3% increase
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <h3>Weekly Volume</h3>
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="metric-value">156</div>
+                    <div class="metric-change neutral">
+                        <i class="fas fa-minus"></i> No change
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Approvals -->
+        <section class="activity-section">
+            <h2>Recent Approvals</h2>
+            <div class="approval-list">
+                <div class="approval-item">
+                    <div class="approval-icon approved">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="approval-content">
+                        <h4>GP-2024-089 - Laptop Request</h4>
+                        <p>John Smith (IT Department) - Approved for client meeting</p>
+                        <span class="approval-time">15 minutes ago</span>
+                    </div>
+                    <div class="approval-status approved">Approved</div>
+                </div>
+                <div class="approval-item">
+                    <div class="approval-icon approved">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="approval-content">
+                        <h4>GP-2024-088 - Camera Equipment</h4>
+                        <p>Sarah Wilson (Marketing) - Approved for product shoot</p>
+                        <span class="approval-time">1 hour ago</span>
+                    </div>
+                    <div class="approval-status approved">Approved</div>
+                </div>
+                <div class="approval-item">
+                    <div class="approval-icon rejected">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="approval-content">
+                        <h4>GP-2024-087 - Server Equipment</h4>
+                        <p>Mike Johnson (Operations) - Rejected due to maintenance schedule</p>
+                        <span class="approval-time">2 hours ago</span>
+                    </div>
+                    <div class="approval-status rejected">Rejected</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="landing-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Approval Tools</h4>
+                    <ul>
+                        <li><a href="#pending">Pending Queue</a></li>
+                        <li><a href="#approved">Approved Requests</a></li>
+                        <li><a href="#rejected">Rejected Items</a></li>
+                        <li><a href="#analytics">Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Management</h4>
+                    <ul>
+                        <li><a href="#team">Team Overview</a></li>
+                        <li><a href="#delegation">Delegation</a></li>
+                        <li><a href="#workflows">Workflows</a></li>
+                        <li><a href="#settings">Settings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> approvers@company.com</p>
+                    <p><i class="fas fa-clock"></i> Business Hours Support</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SecurePass Gate Management System. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function navigateTo(section) {
+            console.log(`Navigating to: ${section}`);
+            window.location.href = `approver-portal.html#${section}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+                card.classList.add('fade-in-up');
+            });
+
+            animateStats();
+        });
+
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 30;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 50);
+            });
+        }
+    </script>
+</body>
+</html>

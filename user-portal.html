@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Portal - SecurePass</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body id="user_body">
+    <!-- Login Screen -->
+     <form action="" id="user_form">
+    <div id="loginScreen" class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo">
+                    <i class="fas fa-shield-alt" style="color: red;"></i>
+                    <h2>SecurePass</h2>
+                </div>
+                <h3>Login Portal</h3>
+                <p>Sign in with relavent credentials</p>
+            </div>
+            
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="employeeId" style="color: aqua; margin-top: 20px;">Username</label>
+                    <div class="input-group">
+                        <i class="fas fa-id-badge"></i>
+                        <input type="text" id="employeeId" name="employeeId" placeholder="Enter your employee ID" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" style="color: aqua; margin-top: 20px;">Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="auth-btn" style="margin-top: 20px; margin-bottom: 20px;">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Sign In
+                </button>
+            </form>
+            
+            <div class="auth-footer">
+                <a href="index1.html" class="back-link" style="color: aqua; font-style: italic; margin-top: 20px;">
+                    <i class="fas fa-arrow-left"></i> Back to Portal Selection
+                </a>
+            </div>
+        </div>
+    </div>
+    </form>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="dashboard-container" style="display: none;">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>SecurePass</span>
+                </div>
+                <h1 id="pageTitle">Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <span class="user-name" id="userName">John Doe</span>
+                        <span class="user-role">Employee</span>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a></li>
+                <li><a href="#" class="nav-link" data-section="new-request">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>New Request</span>
+                </a></li>
+                <li><a href="#" class="nav-link" data-section="my-requests">
+                    <i class="fas fa-list"></i>
+                    <span>My Requests</span>
+                </a></li>
+                <li><a href="#" class="nav-link" data-section="tracking">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Track Equipment</span>
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="pendingCount">3</h3>
+                            <p>Pending Requests</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon approved">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="approvedCount">12</h3>
+                            <p>Approved This Month</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon active">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="activeCount">2</h3>
+                            <p>Active Passes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Recent Requests</h3>
+                        <div class="request-list" id="recentRequests">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                        <a href="#" class="view-all-link" onclick="switchSection('my-requests')">View All Requests</a>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>Quick Actions</h3>
+                        <div class="quick-actions">
+                            <button class="quick-action-btn" onclick="switchSection('new-request')">
+                                <i class="fas fa-plus"></i>
+                                <span>New Request</span>
+                            </button>
+                            <button class="quick-action-btn" onclick="switchSection('tracking')">
+                                <i class="fas fa-search"></i>
+                                <span>Track Equipment</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Request Section -->
+            <section id="new-request-section" class="content-section">
+                <div class="form-container">
+                    <h2>Submit New Gate Pass Request</h2>
+                    <form id="gatePassForm" class="gate-pass-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="requestType">Request Type</label>
+                                <select id="requestType" name="requestType" required>
+                                    <option value="">Select Type</option>
+                                    <option value="equipment">Equipment</option>
+                                    <option value="material">Material</option>
+                                    <option value="document">Document</option>
+                                    <option value="personal">Personal Item</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="priority">Priority</label>
+                                <select id="priority" name="priority" required>
+                                    <option value="normal">Normal</option>
+                                    <option value="urgent">Urgent</option>
+                                    <option value="emergency">Emergency</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="itemDescription">Item Description</label>
+                            <textarea id="itemDescription" name="itemDescription" rows="3" placeholder="Provide detailed description of the item(s)" required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="estimatedValue">Estimated Value ($)</label>
+                                <input type="number" id="estimatedValue" name="estimatedValue" min="0" step="0.01">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="purpose">Purpose/Reason</label>
+                            <input type="text" id="purpose" name="purpose" placeholder="Business meeting, client presentation, etc." required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="destination">Destination</label>
+                                <input type="text" id="destination" name="destination" placeholder="Where are you taking the item?" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="expectedReturn">Expected Return</label>
+                                <input type="datetime-local" id="expectedReturn" name="expectedReturn" required>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="saveDraft()">
+                                <i class="fas fa-save"></i> Save Draft
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Submit Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- My Requests Section -->
+            <section id="my-requests-section" class="content-section">
+                <div class="requests-container">
+                    <div class="section-header">
+                        <h2>My Requests</h2>
+                        <div class="filter-controls">
+                            <select id="statusFilter" onchange="filterRequests()">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                                <option value="active">Active</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="requests-grid" id="requestsGrid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tracking Section -->
+            <section id="tracking-section" class="content-section">
+                <div class="tracking-container">
+                    <h2>Track Equipment</h2>
+                    <div class="search-bar">
+                        <div class="input-group">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="trackingSearch" placeholder="Enter Gate Pass ID or Item Description">
+                            <button class="btn btn-primary" onclick="searchTracking()">Search</button>
+                        </div>
+                    </div>
+                    <div class="tracking-results" id="trackingResults">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="user-portal.js"></script>
+</body>
+</html>

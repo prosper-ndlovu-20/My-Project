@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        boddy {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+  <div class="form-container">
+                    <h3>Submit New Gate Pass Request</h3>
+                    <form id="gatePassForm" class="gate-pass-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="employeeId">Employee ID</label>
+                                <input type="text" id="employeeId" name="employeeId" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="employeeName">Employee Name</label>
+                                <input type="text" id="employeeName" name="employeeName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <select id="department" name="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="IT">IT</option>
+                                    <option value="HR">HR</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Operations">Operations</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="requestType">Request Type</label>
+                                <select id="requestType" name="requestType" required>
+                                    <option value="">Select Type</option>
+                                    <option value="equipment">Equipment</option>
+                                    <option value="material">Material</option>
+                                    <option value="document">Document</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemDescription">Item Description</label>
+                            <textarea id="itemDescription" name="itemDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input type="number" id="quantity" name="quantity" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="purpose">Purpose</label>
+                                <input type="text" id="purpose" name="purpose" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expectedReturn">Expected Return Date</label>
+                                <input type="datetime-local" id="expectedReturn" name="expectedReturn" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="destination">Destination</label>
+                                <input type="text" id="destination" name="destination" required>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary">Save Draft</button>
+                            <button type="submit" class="btn btn-primary">Submit Request</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+</body>
+</html>

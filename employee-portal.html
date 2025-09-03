@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Portal - SecurePass Gate Management</title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="landing-container user-portal">
+        <!-- Navigation Header -->
+        <nav class="landing-nav">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecurePass</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#help" class="nav-link">
+                    <i class="fas fa-question-circle"></i> Help
+                </a>
+                <a href="#contact" class="nav-link">
+                    <i class="fas fa-phone"></i> Contact
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h1>Employee Portal</h1>
+                <p class="hero-subtitle">Submit, track, and manage your gate pass requests with ease</p>
+                
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="pendingRequests">3</div>
+                        <div class="stat-label">Pending Requests</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="approvedToday">2</div>
+                        <div class="stat-label">Approved Today</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalRequests">47</div>
+                        <div class="stat-label">Total Requests</div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-large" onclick="navigateTo('dashboard')">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Go to Dashboard
+                    </button>
+                    <button class="btn btn-secondary btn-large" onclick="navigateTo('new-request')">
+                        <i class="fas fa-plus-circle"></i>
+                        New Request
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-card" onclick="navigateTo('new-request')">
+                    <div class="feature-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>Submit Request</h3>
+                    <p>Create new gate pass requests for equipment, materials, or documents</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Quick form submission</li>
+                        <li><i class="fas fa-check"></i> Auto-save drafts</li>
+                        <li><i class="fas fa-check"></i> Upload attachments</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" onclick="navigateTo('tracking')">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Track Equipment</h3>
+                    <p>Real-time tracking of your equipment and materials in transit</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Live location updates</li>
+                        <li><i class="fas fa-check"></i> Status notifications</li>
+                        <li><i class="fas fa-check"></i> Return reminders</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" onclick="navigateTo('history')">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Request History</h3>
+                    <p>View and manage all your previous gate pass requests</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Complete history</li>
+                        <li><i class="fas fa-check"></i> Download records</li>
+                        <li><i class="fas fa-check"></i> Print gate passes</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" onclick="navigateTo('profile')">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>Profile Settings</h3>
+                    <p>Manage your profile information and notification preferences</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Update details</li>
+                        <li><i class="fas fa-check"></i> Notification settings</li>
+                        <li><i class="fas fa-check"></i> Security options</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="activity-section">
+            <h2>Recent Activity</h2>
+            <div class="activity-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon approved">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Request GP-2024-045 Approved</h4>
+                        <p>Your laptop request has been approved by Manager Smith</p>
+                        <span class="timeline-time">2 hours ago</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon pending">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Request GP-2024-046 Submitted</h4>
+                        <p>Projector request submitted for approval</p>
+                        <span class="timeline-time">5 hours ago</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon completed">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Equipment Returned</h4>
+                        <p>Camera equipment successfully returned</p>
+                        <span class="timeline-time">Yesterday</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="landing-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#new-request">New Request</a></li>
+                        <li><a href="#tracking">Tracking</a></li>
+                        <li><a href="#history">History</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#contact">Contact IT</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#guide">User Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> support@company.com</p>
+                    <p><i class="fas fa-clock"></i> 24/7 Support</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SecurePass Gate Management System. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function navigateTo(section) {
+            // Navigate to specific section or page
+            console.log(`Navigating to: ${section}`);
+            // You can implement actual navigation logic here
+            // window.location.href = `user-portal.html#${section}`;
+        }
+
+        // Add entrance animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+                card.classList.add('fade-in-up');
+            });
+
+            // Animate stats
+            animateStats();
+        });
+
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 30;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 50);
+            });
+        }
+    </script>
+</body>
+</html>

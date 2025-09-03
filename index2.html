@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-id-card"></i> Gate Pass</h2>
+                <button class="toggle-btn" id="toggleBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#dashboard" class="nav-link active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a></li>
+                <li><a href="#request" class="nav-link" data-section="request">
+                    <i class="fas fa-plus-circle"></i> New Request
+                </a></li>
+                <li><a href="#approval" class="nav-link" data-section="approval">
+                    <i class="fas fa-check-circle"></i> Approvals
+                </a></li>
+                <li><a href="#tracking" class="nav-link" data-section="tracking">
+                    <i class="fas fa-map-marker-alt"></i> Tracking
+                </a></li>
+                <li><a href="#records" class="nav-link" data-section="records">
+                    <i class="fas fa-folder-open"></i> Records
+                </a></li>
+                <li><a href="#reports" class="nav-link" data-section="reports">
+                    <i class="fas fa-chart-bar"></i> Reports
+                </a></li>
+            </ul>
+        </nav>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span>John Doe</span>
+                    </div>
+                </div>
+            </header>
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Pending Requests</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>45</h3>
+                            <p>Approved Today</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>8</h3>
+                            <p>In Transit</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-archive"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>234</h3>
+                            <p>Total Records</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon approved">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>GP-2024-001</strong> approved by Manager</p>
+                                <small>2 hours ago</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon pending">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>GP-2024-002</strong> submitted for approval</p>
+                                <small>4 hours ago</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon completed">
+                                <i class="fas fa-flag-checkered"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>GP-2024-003</strong> equipment returned</p>
+                                <small>6 hours ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Request Section -->
+            <section id="request" class="content-section">
+                
+            <!-- Approval Section -->
+            <section id="approval" class="content-section">
+                <div class="approval-container">
+                    <h3>Pending Approvals</h3>
+                    <div class="approval-filters">
+                        <select id="approvalFilter">
+                            <option value="all">All Requests</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                    </div>
+                    
+                    <div class="approval-list">
+                        <div class="approval-item">
+                            <div class="approval-header">
+                                <div class="request-id">GP-2024-001</div>
+                                <div class="status-badge pending">Pending</div>
+                            </div>
+                            <div class="approval-details">
+                                <p><strong>Employee:</strong> Jane Smith (IT Department)</p>
+                                <p><strong>Item:</strong> Laptop - Dell Inspiron 15</p>
+                                <p><strong>Purpose:</strong> Client presentation</p>
+                                <p><strong>Duration:</strong> 2 days</p>
+                            </div>
+                            <div class="approval-actions">
+                                <button class="btn btn-success btn-sm" onclick="approveRequest('GP-2024-001')">
+                                    <i class="fas fa-check"></i> Approve
+                                </button>
+                                <button class="btn btn-danger btn-sm" onclick="rejectRequest('GP-2024-001')">
+                                    <i class="fas fa-times"></i> Reject
+                                </button>
+                                <button class="btn btn-info btn-sm" onclick="viewDetails('GP-2024-001')">
+                                    <i class="fas fa-eye"></i> Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="approval-item">
+                            <div class="approval-header">
+                                <div class="request-id">GP-2024-002</div>
+                                <div class="status-badge pending">Pending</div>
+                            </div>
+                            <div class="approval-details">
+                                <p><strong>Employee:</strong> Mike Johnson (Operations)</p>
+                                <p><strong>Item:</strong> Projector - Epson EB-X41</p>
+                                <p><strong>Purpose:</strong> Training session</p>
+                                <p><strong>Duration:</strong> 1 day</p>
+                            </div>
+                            <div class="approval-actions">
+                                <button class="btn btn-success btn-sm" onclick="approveRequest('GP-2024-002')">
+                                    <i class="fas fa-check"></i> Approve
+                                </button>
+                                <button class="btn btn-danger btn-sm" onclick="rejectRequest('GP-2024-002')">
+                                    <i class="fas fa-times"></i> Reject
+                                </button>
+                                <button class="btn btn-info btn-sm" onclick="viewDetails('GP-2024-002')">
+                                    <i class="fas fa-eye"></i> Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Tracking Section -->
+            <section id="tracking" class="content-section">
+                <div class="tracking-container">
+                    <h3>Equipment Tracking</h3>
+                    <div class="search-bar">
+                        <input type="text" id="trackingSearch" placeholder="Search by Gate Pass ID or Employee Name">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                    <div class="tracking-list">
+                        <div class="tracking-item">
+                            <div class="tracking-header">
+                                <div class="tracking-id">GP-2024-001</div>
+                                <div class="status-badge in-transit">In Transit</div>
+                            </div>
+                            <div class="tracking-details">
+                                <div class="tracking-info">
+                                    <p><strong>Employee:</strong> Jane Smith</p>
+                                    <p><strong>Item:</strong> Laptop - Dell Inspiron 15</p>
+                                    <p><strong>Destination:</strong> Client Office - Downtown</p>
+                                </div>
+                                <div class="tracking-timeline">
+                                    <div class="timeline-item completed">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Request Approved</span>
+                                        <small>10:30 AM</small>
+                                    </div>
+                                    <div class="timeline-item completed">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <span>Equipment Checked Out</span>
+                                        <small>11:15 AM</small>
+                                    </div>
+                                    <div class="timeline-item active">
+                                        <i class="fas fa-truck"></i>
+                                        <span>In Transit</span>
+                                        <small>Current</small>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        <span>Equipment Return</span>
+                                        <small>Pending</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tracking-item">
+                            <div class="tracking-header">
+                                <div class="tracking-id">GP-2024-003</div>
+                                <div class="status-badge completed">Completed</div>
+                            </div>
+                            <div class="tracking-details">
+                                <div class="tracking-info">
+                                    <p><strong>Employee:</strong> Sarah Wilson</p>
+                                    <p><strong>Item:</strong> Camera - Canon EOS 80D</p>
+                                    <p><strong>Destination:</strong> Marketing Event</p>
+                                </div>
+                                <div class="tracking-timeline">
+                                    <div class="timeline-item completed">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Request Approved</span>
+                                        <small>Yesterday 2:30 PM</small>
+                                    </div>
+                                    <div class="timeline-item completed">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <span>Equipment Checked Out</span>
+                                        <small>Yesterday 3:00 PM</small>
+                                    </div>
+                                    <div class="timeline-item completed">
+                                        <i class="fas fa-truck"></i>
+                                        <span>In Transit</span>
+                                        <small>Yesterday 3:30 PM</small>
+                                    </div>
+                                    <div class="timeline-item completed">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        <span>Equipment Returned</span>
+                                        <small>Today 9:00 AM</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Records Section -->
+            <section id="records" class="content-section">
+                <div class="records-container">
+                    <h3>Gate Pass Records</h3>
+                    <div class="records-filters">
+                        <div class="filter-group">
+                            <input type="date" id="dateFrom" placeholder="From Date">
+                            <input type="date" id="dateTo" placeholder="To Date">
+                            <select id="statusFilter">
+                                <option value="">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                            <button class="btn btn-primary">Filter</button>
+                        </div>
+                    </div>
+                    <div class="records-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Gate Pass ID</th>
+                                    <th>Employee</th>
+                                    <th>Department</th>
+                                    <th>Item</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>GP-2024-001</td>
+                                    <td>Jane Smith</td>
+                                    <td>IT</td>
+                                    <td>Laptop - Dell Inspiron 15</td>
+                                    <td>2024-01-15</td>
+                                    <td><span class="status-badge in-transit">In Transit</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info">View</button>
+                                        <button class="btn btn-sm btn-secondary">Print</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>GP-2025-002</td>
+                                    <td>Mike Johnson</td>
+                                    <td>Operations</td>
+                                    <td>Projector - Epson EB-X41</td>
+                                    <td>2024-01-15</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info">View</button>
+                                        <button class="btn btn-sm btn-secondary">Print</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>GP-2024-003</td>
+                                    <td>Sarah Wilson</td>
+                                    <td>Marketing</td>
+                                    <td>Camera - Canon EOS 80D</td>
+                                    <td>2024-01-14</td>
+                                    <td><span class="status-badge completed">Completed</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info">View</button>
+                                        <button class="btn btn-sm btn-secondary">Print</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <!-- Reports Section -->
+            <section id="reports" class="content-section">
+                <div class="reports-container">
+                    <h3>Reports & Analytics</h3>
+                    
+                    <div class="report-cards">
+                        <div class="report-card">
+                            <h4>Monthly Summary</h4>
+                            <p>Generate comprehensive monthly reports</p>
+                            <button class="btn btn-primary">Generate Report</button>
+                        </div>
+                        <div class="report-card">
+                            <h4>Department Wise</h4>
+                            <p>Equipment usage by department</p>
+                            <button class="btn btn-primary">Generate Report</button>
+                        </div>
+                        <div class="report-card">
+                            <h4>Audit Trail</h4>
+                            <p>Complete audit trail for compliance</p>
+                            <button class="btn btn-primary">Generate Report</button>
+                        </div>
+                        <div class="report-card">
+                            <h4>Equipment Utilization</h4>
+                            <p>Equipment usage statistics</p>
+                            <button class="btn btn-primary">Generate Report</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h4>Gate Pass Trends</h4>
+                        <canvas id="trendsChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- Modal for Request Details -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Gate Pass Details</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
